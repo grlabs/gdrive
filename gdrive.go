@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/prasmussen/gdrive/cli"
 	"os"
+
+	"github.com/grlabs/gdrive/cli"
 )
 
 const Name = "gdrive"
-const Version = "2.1.0"
+const Version = "2.1.0.grlabs"
 
 const DefaultMaxFiles = 30
 const DefaultMaxChanges = 100
@@ -107,6 +108,12 @@ func main() {
 						OmitValue:   true,
 					},
 					cli.BoolFlag{
+						Name:        "skip",
+						Patterns:    []string{"-s", "--skip"},
+						Description: "Skip existing file",
+						OmitValue:   true,
+					},
+					cli.BoolFlag{
 						Name:        "recursive",
 						Patterns:    []string{"-r", "--recursive"},
 						Description: "Download directory recursively, documents will be skipped",
@@ -155,6 +162,12 @@ func main() {
 						Name:        "force",
 						Patterns:    []string{"-f", "--force"},
 						Description: "Overwrite existing file",
+						OmitValue:   true,
+					},
+					cli.BoolFlag{
+						Name:        "skip",
+						Patterns:    []string{"-s", "--skip"},
+						Description: "Skip existing file",
 						OmitValue:   true,
 					},
 					cli.BoolFlag{
